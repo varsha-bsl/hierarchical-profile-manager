@@ -1,0 +1,45 @@
+server:
+  port: 8088
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connectionTimeout: 30000
+      idleTimeout: 70000
+      maxLifetime: 60000
+    password: ${db-password}
+    url: jdbc:mysql://3.140.132.129:3306/hierarchicalprofilemanagerdb
+    username: ${db-user}
+  flyway:
+    baselineOnMigrate: true
+    enabled: true
+    password: ${db-password}
+    url: jdbc:mysql://3.140.132.129:3306/hierarchicalprofilemanagerdb
+    user: ${db-user}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 8MB
+      max-request-size: 8MB
+logging:
+  level:
+    net:
+      guides: INFO
+    org:
+      hibernate: INFO
+      springframework:
+        web: INFO
+    springframework:
+      cloud.gateway: INFO
+      http.server.reactive: INFO
+      security: INFO
+      web: INFO
+      web.filter.CommonsRequestLoggingFilter: INFO
+      web.reactive: INFO
+    reactor:
+      netty.http.client: INFO
+    root: INFO
